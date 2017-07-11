@@ -24,21 +24,23 @@
 #home_btn>h1
 {
 	margin-top: 15px;
-	display: block;
+	display: inline-block;
 }
 #home_btn>h1>a{
+	display: block;
 	color: rgba(212,103,80,1);
 font:35px serif;
 
 }
 
 #home_btn>h1>a>span#jetro
-{
+{	
 	color: rgba(212,103,80,0.4);
 }
 
 
 #home_btn>h1>a:hover, 
+
 #top_Menu>nav>ol>li>a:hover, 
 #top_Menu>nav>ol>li>a#first
 {
@@ -243,11 +245,13 @@ main>section#recent_work>section
 	width: inherit;
 	float: left;
 	display: block;
+	background: url(../img/o1.png) repeat-x;
+	background-position: left 100;
 	
 }
 main>section#recent_work>img
-{
-	
+{	
+
 }
 main>section#recent_work>article
 {	
