@@ -23,6 +23,7 @@ function Math( a, b=1, c=1,l){
 	for (var i = 0; i < b; i++) {
 		 
 		 result=result+(a+c);
+		 
 		 document.write(i+" ==> "+result+q);
 		 
 		}	
