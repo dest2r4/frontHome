@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style> 
+	div{
+		background: silver;
+		font-size: 40px;
+	}
+	</style>
+</head>
+<body>
+<div>
+<h1>Home</h1>
+	<script>
+		// заданная строка
+var month="January,February,March,April,May,June,July,August,September,October,November,December";
+month=month.split(',');
+var result = [];
+// дни не проверял, взял числа просто для примера
+var days=[24,12,123,23,35,35,21,21,32,5,321,5];
+
+ for(var i=0;i<12;i++){
+ 	// номер месяца == I+1
+ 	result[i]={Name:month[i],Days:days[i],Pos:i+1};
+ 	document.write(result[i].Pos+" --> "+
+ 		result[i].Days+" <-- "+
+ 		result[i].Name+"<br>");
+
+ }
+	</script>
+	</div>
+</body>
+</html>
