@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<form action="">
+    Name<input type="text"id="name">
+    <input type="checkbox" id="ourCheckBox1"><br>
+    Login<input type="text"id="login">
+    <input type="checkbox" id="ourCheckBox2"><br>
+    Pass<input type="text"id="pass">
+    <input type="checkbox" id="ourCheckBox3"><br>
+    Email<input type="email"id="email">
+    <input type="checkbox" id="ourCheckBox4"><br>
+
+<input type="submit" >
+</form>
+<script>
+
+    var Name=document.getElementById('name').value;
+    var Login=document.getElementById('login').value;
+    var Pass=document.getElementById('pass').value;
+    var Email=document.getElementById('email').value;
+   var NameC=document.getElementById('ourCheckBox1').checked;
+   var LoginC=document.getElementById('ourCheckBox2').checked;
+   var PassC=document.getElementById('ourCheckBox3').checked;
+   var EmailC=document.getElementById('ourCheckBox4').checked;
+  //  document.write(LoginC);
+
+    function Construct(name,namec,login,loginc,pass,passc,email,emailc ) {
+        this.name;
+        this.namec;
+        this.login;
+        this.loginc;
+        this.pass;
+        this.passc;
+        this.email;
+        this.emailc;
+     if(name && namec && login && loginc && pass && passc && email && emailc){
+         this.name=name;
+         this.login=login;
+         this.pass=pass;
+         this.email=email;
+         document.write(this.name+" ===> "+this.login+" ==> "+this.pass+" ==> "+ this.email);
+     }
+     // забыли поставить чек на пароле, и он не записался
+     else if (name && namec && login && loginc  && email && emailc &&(!passc))
+         this.name=name;
+        this.login=login;
+        this.email=email;
+        document.write("<h1>Check your password!</h1>")
+        document.write(this.name+" ===> "+this.login+" ==> "+" ==> "+ this.email);
+
+    }
+    // соответственно так я могу баловатся до бесконечтности
+    var User=new Construct(Name,NameC,Login,LoginC,Pass,PassC,Email,EmailC);
+    console.log(User);
+
+
+
+
+</script>
+
+</body>
+</html>
