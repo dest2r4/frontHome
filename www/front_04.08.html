@@ -1,0 +1,93 @@
+<script>
+   /*
+   Домашнее задание от 04.08.2017
+   Исходные текст: (строка, которая содержит название месяцев)
+    "January,February,March,April,May,June,July,August,September,October,November,December".
+
+Из исходной строки сформировать 4 объекта с названиями:
+
+winter, spring, summer, autumn,
+в каждом из которых будет по три свойства - название месяцев.
+Значение каждого свойства это еще один объект в котором два свойства - number (номер месяца в году) и days (количество дней).
+
+
+
+
+    */
+
+
+    var string="January,February,March,April,May,June,July,August,September,October,November,December";
+    var list=string.split(",");
+
+    var winter={};
+    var spring={};
+    var summer={};
+    var autumn={};
+    var calendar={}
+    for(var i=0;i<list.length;i++)
+    {
+            if(i%2==0)
+            {
+                calendar[list[i]]={Month_number:i+1,days:31};
+            }else
+                {
+                    calendar[list[i]]={Month_number:i+1,days:30};
+                }
+
+
+    }
+    for(var i=0;i<list.length;i++)
+    {
+        if(i<2)
+        {
+            winter[list[i]]=calendar[list[i]];
+            winter[list[11]]=calendar[list[11]];
+            winter['December']={Month_number:12, days:28};
+        }
+        else if(i>=2 &&i<5){
+            spring[list[i]]=calendar[list[i]];
+        }
+        else if(i>=5 &&i<8){
+            summer[list[i]]=calendar[list[i]];
+        }
+        else if(i>=8 && i<11)
+        {
+            autumn[list[i]]=calendar[list[i]];
+
+        }
+    }
+
+    console.log(calendar);
+    console.log(winter);
+    console.log(spring);
+    console.log(summer);
+    console.log(autumn);
+    var table="<table border='4'><tr><th>First</th><th>Second</th><th>Third</th>";
+    table+="<tr>";
+    for(wint in winter)
+    {
+        table+="<td>"+wint+"</td>"
+    }
+    table+="</tr>";
+    table+="<tr>";
+    for(wint in spring)
+    {
+        table+="<td>"+wint+"</td>"
+    }
+    table+="</tr>";
+    table+="<tr>";
+    for(wint in summer)
+    {
+        table+="<td>"+wint+"</td>"
+    }
+    table+="</tr>";
+    table+="<tr>";
+    for(wint in autumn)
+    {
+        table+="<td>"+wint+"</td>"
+    }
+    table+="</tr>";
+    document.write(table)
+
+
+    </script>

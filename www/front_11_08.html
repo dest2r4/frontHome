@@ -1,0 +1,126 @@
+<script>
+/*Домашнее задание №8
+
+Исходные данные:
+
+var header = "{margin:25px;height:900px;width:100%}";
+var main = "{padding:0 0 10px;margin:25px;width:100%}";
+var wrap = "{margin:0 auto;width:960px}";
+var footer = "{float:left;padding:0 0 10px;background:#eeaaa3}";
+Четыре переменных типа string, в каких записаны CSS стили.
+В результате нужно сформировать массив из четырех элементов-объектов, где свойствами будут данные стили со своими значениями.
+А также, если встречаются одинаковые CSS свойства вместе со своими значением, вывести их в отдельном объекте совпадений.
+
+
+*/
+
+
+
+var header = "{margin:25px;height:900px;width:100%}";
+var main = "{padding:0 0 10px;margin:25px;width:100%}";
+var wrap = "{margin:0 auto;width:960px}";
+var footer = "{float:left;padding:0 0 10px;background:#eeaaa3}";
+var resultAll={};
+
+function convert(string) {
+string=string.slice(1);
+string=string.slice(0,-1);
+return string;
+}
+function toArray(string) {
+var newArr;
+newArr=convert(string).split(';');
+//console.log(newArr);
+return newArr;
+}
+function restructed(arr) {
+arr=toArray(arr);
+var newArr={};
+var len=arr.length;
+for(var i=0;i<len;i++)
+{
+
+arr[i]=arr[i].split(':');
+for(var ii=0; ii<arr[i].length-1;ii++)
+{
+newArr[arr[i][ii]]=arr[i][ii+1];
+}
+//   document.write(arr[i]+"<br>");
+
+}
+return newArr;
+}
+var header=restructed(header);
+var main=restructed(main);
+var wrap=restructed(wrap);
+var footer=restructed(footer);
+
+var same={};
+for(item in header)
+{
+// document.write("Header :: "+item+" ===> "+header[item]+"<br>" );
+if(resultAll[item]==header[item])
+{
+same[item]=same[header[item]];
+}
+else {
+resultAll[item]=header[item];
+
+}
+
+}for(item in main)
+{
+// document.write("Main ::"+item+" ===> "+main[item]+"<br>" );
+if( resultAll[item]==main[item])
+{
+same[item]=main[item];
+}
+else {
+resultAll[item]=main[item];
+}
+
+}
+for(item in wrap)
+{
+// document.write("Wrap ::"+item+" ===> "+wrap[item]+"<br>" );
+if( resultAll[item]==wrap[item])
+{
+same[item]=wrap[item];
+}
+else {
+resultAll[item]=wrap[item];
+}
+
+}
+for(item in footer)
+{
+// document.write("Footer ::"+item+" ===> "+footer[item]+"<br>" );
+if( resultAll[item]==footer[item])
+{
+same[item]=footer[item];
+}
+else {
+resultAll[item]=footer[item];
+}
+
+}
+
+var resTable="<table border='4' align='center' width='80%' style='font-size: 70px'><caption>Result table with same positions</caption>";
+    for(item in same)
+    {
+    resTable+="<tr><td>"+item+"</td><td>"+same[item]+"</td></tr>";
+    }
+    resTable+="</table>";
+document.write(resTable);
+
+
+// data about all same Elemens
+console.log(same);
+//data about all Elements
+console.log(header);
+console.log(main);
+console.log(wrap);
+console.log(footer);
+
+
+</script>
